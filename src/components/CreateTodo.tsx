@@ -1,15 +1,13 @@
-import React, { FormEvent, useState } from 'react';
+import { FormEvent, useState } from 'react';
+import useTodosContext from '../hooks/useTodosContext';
 
-type Props = {
-  onCreate: (title: string) => void;
-};
-
-export default function CreateTodo({ onCreate }: Props) {
+export default function CreateTodo() {
   const [todo, setTodo] = useState('');
+  const { createTodo } = useTodosContext();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onCreate(todo);
+    createTodo(todo);
     setTodo('');
   };
 

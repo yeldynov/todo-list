@@ -1,17 +1,20 @@
 import { useState } from 'react';
+import useTodosContext from '../hooks/useTodosContext';
 import { Todo } from '../types';
 
 type Props = {
   todo: Todo;
-  onSubmit: (id: number, title: string) => void;
+  onClose: () => void;
 };
 
-export default function EditTodo({ todo, onSubmit }: Props) {
+export default function EditTodo({ todo, onClose }: Props) {
   const [title, setTitle] = useState(todo.title);
+  const { editTodoById } = useTodosContext();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSubmit(todo.id, title);
+    editTodoById(todo.id, title);
+    onClose();
   };
 
   return (

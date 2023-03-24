@@ -1,0 +1,12 @@
+{
+  "todos": [
+    {
+      "title": "Find a Job",
+      "id": 1
+    },
+    {
+      "title": "Add new todo!",
+      "id": 2
+    }
+  ]
+}

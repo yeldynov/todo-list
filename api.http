@@ -1,0 +1,29 @@
+# Get all todos
+GET http://localhost:3002/todos HTTP/1.1
+Content-Type: application/json
+
+###
+
+# Create a todo
+POST http://localhost:3002/todos HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Find a Job"
+}
+
+###
+
+# Update a todo
+PUT http://localhost:3002/todos/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Become a Frontend Developer"
+}
+
+###
+
+# Delete a todo
+DELETE http://localhost:3002/todos/1 HTTP/1.1
+Content-Type: application/json

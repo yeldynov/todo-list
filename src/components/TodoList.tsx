@@ -1,24 +1,15 @@
-import React from 'react';
+import useTodosContext from '../hooks/useTodosContext';
 import { Todo } from '../types';
 import TodoItem from './TodoItem';
 
-type Props = {
-  todos: Todo[];
-  onDelete: (id: number) => void;
-  onEdit: (id: number, title: string) => void;
-};
+export default function TodoList() {
+  const { todos } = useTodosContext();
 
-export default function TodoList({ todos, onDelete, onEdit }: Props) {
   return (
     <div className='mt-24'>
       <h1 className='font-bold flex justify-center text-3xl my-5'>TODO LIST</h1>
       {todos.map((todo) => (
-        <TodoItem
-          onEdit={onEdit}
-          onDelete={onDelete}
-          key={todo.id}
-          todo={todo}
-        />
+        <TodoItem key={todo.id} todo={todo} />
       ))}
     </div>
   );
